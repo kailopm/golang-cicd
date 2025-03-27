@@ -1,3 +1,6 @@
+# Hello!
+This is the sample project for a Golang app with a full stream CI/CD pipeline with Jenkins, Kubernetes, and many more.
+
 # Go Web Application
 
 This is a simple website written in Golang. It uses the `net/http` package to serve HTTP requests.
