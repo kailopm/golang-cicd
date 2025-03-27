@@ -1,5 +1,13 @@
 # Introduction
-This is the sample project for a Golang app with a full-stream CI/CD pipeline using Jenkins, Kubernetes, and others.
+This is the sample project for a Golang app with a full-stream CI/CD pipeline using AWS, Kubernetes, and others.
+
+1. Containerizing the app (Docker)
+2. Create Kubernetes Manifest
+3. Set up CI using GitHub Actions
+4. Set up CD using GitOps (Argo CD)
+5. Create Kubernetes Cluster (EKS)
+6. Set up Helm Chart for app (Different Environments)
+7. Set up Ingress Controller (Expose My App)
 
 # Go Web Application
 
