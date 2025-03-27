@@ -1,5 +1,5 @@
-# Hello!
-This is the sample project for a Golang app with a full stream CI/CD pipeline with Jenkins, Kubernetes, and many more.
+# Introduction
+This is the sample project for a Golang app with a full-stream CI/CD pipeline using Jenkins, Kubernetes, and others.
 
 # Go Web Application
 
