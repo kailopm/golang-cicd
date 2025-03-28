@@ -193,5 +193,11 @@ kubectl edit secrets argocd-initial-admin-secret -n argocd
 echo [your_secrets] | base64 --decode
 
 navigate to > [EXTERNAL-IP] (user: admin, )
-navigate to new app > Application Name: "go-web-app", Project Name: "defaults", Sync Policy: "automatic", Self Heal, Repository URL: "[your_repo_url]", Path: "[helm_chart_path]", Cluster URL: https://kubernetes.default.svc (that's mean we're deploy into the same EKS Cluster), namespace: "default", VALUES FILES: "values.yaml" 
+navigate to new app > Application Name: "go-web-app", Project Name: "defaults", Sync Policy: "automatic", Self Heal, Repository URL: "[your_repo_url]", Path: "[helm_chart_path]", Cluster URL: https://kubernetes.default.svc (that's mean we're deploy into the same EKS Cluster), namespace: "default", VALUES FILES: "values.yaml" > Press "Create"
 ```
+
+Hooray! For now ours CI/CD is will run automaticlly when the new commit from DEV is come!
+
+![Website](static/images/github_action_CI.png)
+![Website](static/images/argoCD.png)
+![Website](static/images/sites.jpg)
