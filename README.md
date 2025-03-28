@@ -193,10 +193,10 @@ kubectl port-forward svc/argocd-server 8080:80 -n argocd
 kubectl get secrets -n argocd
 kubectl edit secrets argocd-initial-admin-secret -n argocd
 echo [your_secrets] | base64 --decode
-
-navigate to > [EXTERNAL-IP] (user: admin, )
-navigate to new app > Application Name: "go-web-app", Project Name: "defaults", Sync Policy: "automatic", Self Heal, Repository URL: "[your_repo_url]", Path: "[helm_chart_path]", Cluster URL: https://kubernetes.default.svc (that's mean we're deploy into the same EKS Cluster), namespace: "default", VALUES FILES: "values.yaml" > Press "Create"
 ```
+
+Navigate to `[EXTERNAL-IP]` **(user: admin, password: [your_secrets])**
+Navigate to `new app` --> `Application Name: "go-web-app"`, `Project Name: "defaults"`, `Sync Policy: "automatic"`, `Self Heal`, `Repository URL: "[your_repo_url]"`, `Path: "[helm_chart_path]"`, `Cluster URL: https://kubernetes.default.svc (that's mean we're deploy into the same EKS Cluster)`, `namespace: "default"`, `VALUES FILES: "values.yaml"` > `Press `Create`
 
 ## Hooray! 🔥🤖
 ### For now, our CI/CD will run automatically when a new commit from DEV comes!
@@ -213,5 +213,5 @@ helm install prometheus prometheus-community/kube-prometheus-stack -n monitoring
 kubectl port-forward svc/prometheus-grafana -n monitoring 3000:80
 ```
 Navigate to `localhost:3000`
-Default username: `admin`
-Default password: `prom-operator`
+**Default username: `admin`**
+**Default password: `prom-operator`**
