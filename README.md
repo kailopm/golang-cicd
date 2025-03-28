@@ -172,7 +172,7 @@ Set up Secrets
 Create `DOCKERHUB_USERNAME`
 Create `DOCKERHUB_TOKEN`
 
-Time to `Commit!` and see what's going on.
+Time to `Commit!` and let's see what's going on.
 
 # Set up CD using GitOps (Argo CD)
 ### CD pipeline
