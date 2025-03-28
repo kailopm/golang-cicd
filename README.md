@@ -103,7 +103,7 @@ Next step, we need to create an ingress controller to watch our ingress resource
 # Change ClusterIP > NodePort
 kubectl edit svc [service_name]
 
-# If you're using WSL2 and docker, kubernetes installed inside it like me!
+# If you're using Windows 11 WSL2 and docker, kubernetes installed inside it like me!
 kubectl port-forward svc/go-web-app-service 8080:80
 navigate to > http://localhost:8080/courses
 ```
@@ -170,7 +170,28 @@ Set up Secrets
 Create `DOCKERHUB_USERNAME`
 Create `DOCKERHUB_TOKEN`
 
+Time to `Commit!` and see what's going on.
+
 # Set up CD using GitOps (Argo CD)
 ### CD pipeline
 1. Trigger when Helm chart values are changed
 2. Install Helm in EKS
+
+```bash
+# Create and deploy Argo CD resources
+kubectl create namespace argocd
+kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+
+# Access Argo CD UI
+kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "LoadBalancer"}}'
+kubectl get svc argocd-server -n argocd
+kubectl port-forward svc/argocd-server 8080:80 -n argocd
+
+# Get the password!
+kubectl get secrets -n argocd
+kubectl edit secrets argocd-initial-admin-secret -n argocd
+echo [your_secrets] | base64 --decode
+
+navigate to > [EXTERNAL-IP] (user: admin, )
+navigate to new app > Application Name: "go-web-app", Project Name: "defaults", Sync Policy: "automatic", Self Heal, Repository URL: "[your_repo_url]", Path: "[helm_chart_path]", Cluster URL: https://kubernetes.default.svc (that's mean we're deploy into the same EKS Cluster), namespace: "default", VALUES FILES: "values.yaml" 
+```
