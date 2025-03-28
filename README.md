@@ -8,6 +8,8 @@ This is the sample project for a Golang app with a full-stream CI/CD pipeline us
 5. Set up Helm Chart for app
 6. Set up CI using GitHub Actions
 7. Set up CD using GitOps (Argo CD)
+8. Implement Monitoring & Logging
+9. Implement Autoscaling & Optimization
 
 # Go Web Application
 
@@ -202,3 +204,16 @@ navigate to new app > Application Name: "go-web-app", Project Name: "defaults", 
 ![Website](static/images/github_action_CI.png)
 ![Website](static/images/argoCD.png)
 ![Website](static/images/sites.jpg)
+
+# Implement Monitoring & Logging
+```bash
+helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+helm repo update
+helm install prometheus prometheus-community/kube-prometheus-stack -n monitoring --create-namespace
+kubectl port-forward svc/prometheus-grafana -n monitoring 3000:80
+```
+Navigate to `localhost:3000`
+Default username: `admin`
+Default password: `prom-operator`
+
+# Implement Autoscaling & Optimization
