@@ -215,5 +215,3 @@ kubectl port-forward svc/prometheus-grafana -n monitoring 3000:80
 Navigate to `localhost:3000`
 Default username: `admin`
 Default password: `prom-operator`
-
-# Implement Autoscaling & Optimization
