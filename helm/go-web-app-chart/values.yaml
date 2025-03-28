@@ -1,4 +1,4 @@
 image:
   repository: kailopm/go-web-app
   imagePullPolicy: IfNotPresent
-  tag: "14130137075"
+  tag: "14130660609"
