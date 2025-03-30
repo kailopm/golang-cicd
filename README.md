@@ -1,4 +1,6 @@
-# Introduction
+# Golang CI/CD pipeline
+
+## Description:
 This is the sample project for a Golang app with a full-stream CI/CD pipeline using AWS, Kubernetes, and others.
 
 1. Containerizing the App
