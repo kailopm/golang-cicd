@@ -7,7 +7,7 @@ This is the sample project for a Golang app with a full-stream CI/CD pipeline us
 2. Create Kubernetes Cluster (EKS)
 3. Create Kubernetes Manifest
 4. Set up Ingress Controller (Expose My App)
-5. Set up Helm Chart for app
+5. Set up Helm Chart for the app
 6. Set up CI using GitHub Actions
 7. Set up CD using GitOps (Argo CD)
 8. Implement Monitoring & Logging
@@ -73,7 +73,7 @@ docker push kailopm/go-web-app:v1
 3. Create Access Key (Profile > Security Credentials)
 
 ```bash
-# Login into AWS
+# Log in to AWS
 aws configure
 
 # Create EKS Cluster
@@ -82,13 +82,13 @@ eksctl create cluster --name demo-cluster --region ap-southeast-1
 # Delete EKS Cluster
 eksctl delete cluster --name demo-cluster --region ap-southeast-1
 ```
-After finishing the process of EKS creation (it takes around `15-30` minutes).
+After finishing the process of EKS creation (it takes around `15-30 minutes`).
 We will move forward into the next step.
 
-AWS automatically sets up the Kubernetes configuration `(~/.kube/config)` with the new EKS cluster details. it's `auto-connected` because when you created the EKS cluster using AWS CLI, the update-kubeconfig step was likely done automatically.
+AWS automatically sets up the Kubernetes configuration (~/.kube/config)` with the new EKS cluster details. It's `auto-connected` because when you created the EKS cluster using AWS CLI, the update-kubeconfig step was likely done automatically.
 
 # Create Kubernetes Manifest
-Create a files
+Create a file
 `k8s/manifests/deployment.yaml`
 `k8s/manifests/service.yaml`
 `k8s/manifests/ingress.yaml`
@@ -107,9 +107,9 @@ Next step, we need to create an ingress controller to watch our ingress resource
 # Change ClusterIP > NodePort
 kubectl edit svc [service_name]
 
-# If you're using Windows 11 WSL2 and docker, kubernetes installed inside it like me!
+# If you're using Windows 11 WSL2 and Docker, kubernetes is installed inside it like me!
 kubectl port-forward svc/go-web-app-service 8080:80
-navigate to > http://localhost:8080/courses
+Navigate to > http://localhost:8080/courses
 ```
 
 # Set up Ingress Controller (Expose My App)
@@ -135,7 +135,7 @@ nslookup [LB_ADDRESS]
 # Map the DNS
 [LB_ADDRESS] go-web-app.local
 
-navigate to > https://go-web-app.local/courses
+Navigate to > https://go-web-app.local/courses
 ```
 
 # Set up Helm Chart for app
@@ -164,7 +164,7 @@ helm uninstall go-web-app
 1. Build & Unit Test
 2. Static Code Analysis
 3. Create & Push Docker Image
-4. Update Helm with the image latest tag
+4. Update Helm with the latest image tag
 
 Create a file
 `.github/workflows/ci.yaml`
